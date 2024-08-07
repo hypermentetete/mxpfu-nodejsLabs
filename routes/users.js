@@ -27,6 +27,7 @@ let users = [
 router.get("/",(req,res)=>{
   res.send(users);
   res.send("Yet to be implemented")//This line is to be replaced with actual return value
+  res.send(JSON.stringify({users}, null, 4));
 });
 
 router.get("/:email",(req,res)=>{
