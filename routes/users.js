@@ -38,10 +38,16 @@ router.get("/:email",(req,res)=>{
   res.send(filtered_users);
 });
 
-// POST request: Create a new user
 router.post("/",(req,res)=>{
-  // Copy the code here
-  res.send("Yet to be implemented")//This line is to be replaced with actual return value
+  // Push a new user object into the users array based on query parameters from the request
+  users.push({
+      "firstName": req.query.firstName,
+      "lastName": req.query.lastName,
+      "email": req.query.email,
+      "DOB": req.query.DOB
+  });
+  // Send a success message as the response, indicating the user has been added
+  res.send("The user " + req.query.firstName + " has been added!");
 });
 
 
