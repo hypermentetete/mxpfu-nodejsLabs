@@ -25,8 +25,11 @@ let users = [
 
 // GET request: Retrieve all users
 router.get("/",(req,res)=>{
-  // Copy the code here
-  res.send(JSON.stringify({users}, null, 4));
+  // Copy the code here!
+  let sortedUsers = users.sort(function(a,b) {
+    return (a.lastName < b.lastName ? -1 : (a.lastName === b.lastName ? 0 : 1));
+  });
+  res.send(JSON.stringify({sortedUsers}, null, 4));
   //res.send(users);
 });
 
@@ -36,6 +39,11 @@ router.get("/:email",(req,res)=>{
   res.send(users.filter((user) => user.email === req.params.email));
 });
 
+// GET by specific ID request: Retrieve a single user with email ID
+router.get("/lastName/:lastName",(req,res)=>{
+    // Copy the code here
+    res.send(users.filter((user) => user.lastName === req.params.lastName));
+  });
 
 // POST request: Create a new user
 router.post("/",(req,res)=>{
