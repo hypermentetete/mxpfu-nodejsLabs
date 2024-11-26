@@ -25,7 +25,7 @@ let users = [
 
 // GET request: Retrieve all users
 router.get("/",(req,res)=>{
-  // Copy the code here!
+  // Copy the code here
   let sortedUsers = users.sort(function(a,b) {
     return (a.lastName < b.lastName ? -1 : (a.lastName === b.lastName ? 0 : 1));
   });
